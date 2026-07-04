@@ -7,6 +7,7 @@ import { Footer } from "@/components/layout/Footer";
 import { siteConfig } from "@/content/site";
 import { getOpticianJsonLd, getSiteUrl } from "@/lib/seo";
 import "./globals.css";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -72,6 +73,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <GoogleAnalytics gaID="G-LKFSQBFN4B" />
       </body>
     </html>
   );
