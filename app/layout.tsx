@@ -7,6 +7,7 @@ import { Footer } from "@/components/layout/Footer";
 import { siteConfig } from "@/content/site";
 import { getOpticianJsonLd, getSiteUrl } from "@/lib/seo";
 import "./globals.css";
+import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
