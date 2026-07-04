@@ -60,6 +60,20 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} ${fraunces.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-paper text-ink">
+        <Script
+  src="https://www.googletagmanager.com/gtag/js?id=G-LKFSQBFN4B"
+  strategy="afterInteractive"
+/>
+
+<Script id="google-analytics" strategy="afterInteractive">
+  {`
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LKFSQBFN4B');
+  `}
+</Script>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
