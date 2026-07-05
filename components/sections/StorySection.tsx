@@ -4,6 +4,7 @@ import { Section } from "@/components/ui/Section";
 import { Heading } from "@/components/ui/Heading";
 import { Reveal } from "@/components/motion/Reveal";
 import { StoryTimeline } from "@/components/sections/StoryTimeline";
+import { StoryReadMore } from "@/components/sections/StoryReadMore";
 import { heritageStory, nameStory } from "@/content/heritage";
 
 /**
@@ -22,35 +23,29 @@ export function StorySection() {
   return (
     <Section id="story" className="relative overflow-hidden bg-paper">
       <Container className="relative">
-        {/* ---- Movement I · Origin ---- */}
-        <div className="grid items-center gap-14 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-6">
-            <Reveal>
-              <p className="eyebrow text-royal">
-                Our Story — Three Generations
-              </p>
-              <Heading as="h2" size="display" className="mt-6 max-w-[16ch]">
-                It began before 1996.
-              </Heading>
-            </Reveal>
+        {/* ---- Movement I · Origin ----
+            A named-area grid, not col-span-6 siblings: mobile needs the
+            portrait sandwiched between the first paragraph and "Read more"
+            (see .story-grid in globals.css), which a two-sibling column
+            layout can't reorder to. Tablet keeps today's order (full text,
+            then portrait); desktop is the original side-by-side layout,
+            untouched pixel-for-pixel. */}
+        <div className="story-grid items-center gap-x-16">
+          <Reveal className="story-eyebrow">
+            <p className="eyebrow text-royal">
+              Our Story — Three Generations
+            </p>
+            <Heading as="h2" size="display" className="mt-6 max-w-[16ch]">
+              It began before 1996.
+            </Heading>
+          </Reveal>
 
-            <div className="mt-8 max-w-xl space-y-5 text-lg leading-relaxed text-muted">
-              {heritageStory.map((para, i) => (
-                <Reveal key={i} delay={i * 90}>
-                  <p className={i === 0 ? "dropcap text-ink" : undefined}>{para}</p>
-                </Reveal>
-              ))}
-            </div>
-
-            <Reveal delay={120}>
-              <blockquote className="mt-8 max-w-xl border-l-2 border-champagne pl-5 font-display text-xl italic leading-snug text-ink">
-                {nameStory}
-              </blockquote>
-            </Reveal>
-          </div>
+          <Reveal className="story-para1 mt-8 max-w-xl text-lg leading-relaxed text-muted">
+            <p className="dropcap text-ink">{heritageStory[0]}</p>
+          </Reveal>
 
           {/* the archival portrait, mounted like a print from the album */}
-          <Reveal variant="focus" delay={120} className="lg:col-span-6">
+          <Reveal variant="focus" delay={120} className="story-photo mt-14 lg:mt-0">
             <div className="relative mx-auto max-w-md">
               {/* a second print, peeking from behind */}
               <div
@@ -86,6 +81,10 @@ export function StorySection() {
               </figure>
             </div>
           </Reveal>
+
+          <div className="story-more mt-8 max-w-xl text-lg leading-relaxed text-muted md:mt-5">
+            <StoryReadMore paragraphs={heritageStory.slice(1)} quote={nameStory} />
+          </div>
         </div>
 
         {/* ---- Movement II · The Journey ---- */}

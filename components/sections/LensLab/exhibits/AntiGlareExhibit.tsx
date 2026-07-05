@@ -222,7 +222,7 @@ export function AntiGlareExhibit() {
       <figure className="flex flex-col gap-3 sm:gap-4 lg:h-full lg:justify-center">
         <div
           ref={containerRef}
-          className="relative h-[44svh] min-h-[240px] w-full overflow-hidden rounded-[1.75rem] bg-paper-bright/55 ring-1 ring-line shadow-[0_30px_80px_-52px_rgba(34,29,20,0.55)] lg:h-auto lg:min-h-0 lg:max-h-[600px] lg:flex-1"
+          className="relative h-[38svh] min-h-[200px] w-full overflow-hidden rounded-[1.75rem] bg-paper-bright/55 ring-1 ring-line shadow-[0_30px_80px_-52px_rgba(34,29,20,0.55)] md:h-[44svh] md:min-h-[240px] lg:h-auto lg:min-h-0 lg:max-h-[600px] lg:flex-1"
         >
           <canvas
             ref={canvasRef}

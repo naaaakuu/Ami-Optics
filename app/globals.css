@@ -235,6 +235,11 @@ section[id] { scroll-margin-top: 6rem; }
   0%, 100% { transform: translateY(0); }
   50%      { transform: translateY(-10px); }
 }
+/* Lens Lab discoverability — a slow horizontal nudge inviting a swipe */
+@keyframes nudge-x {
+  0%, 100% { transform: translateX(0); opacity: 0.65; }
+  50%      { transform: translateX(6px); opacity: 1; }
+}
 /* hero scroll cue — a single point of light travelling down a hairline */
 @keyframes scroll-cue {
   0%   { transform: translateY(-100%); opacity: 0; }
@@ -306,6 +311,7 @@ section[id] { scroll-margin-top: 6rem; }
 
 .animate-float { animation: float-soft 6s var(--ease-in-out-soft) infinite; }
 .animate-marquee { animation: marquee 38s linear infinite; }
+.animate-nudge-x { animation: nudge-x 1.9s var(--ease-in-out-soft) infinite; }
 
 /* Signature frame "draws" itself into focus (hero) */
 .frame-animated path {
@@ -437,6 +443,56 @@ section[id] { scroll-margin-top: 6rem; }
 .faq-answer[data-open="true"] {
   grid-template-rows: 1fr;
 }
+
+/* ------------------------------------------------------------------ */
+/*  Our Story — mobile-only "Read more" (tablet/desktop always open)   */
+/* ------------------------------------------------------------------ */
+.story-reveal {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s ease;
+}
+.story-reveal > div {
+  overflow: hidden;
+}
+.story-reveal[data-open="true"] {
+  grid-template-rows: 1fr;
+}
+@media (min-width: 768px) {
+  /* Desktop/tablet must always show the full story, independent of state. */
+  .story-reveal {
+    grid-template-rows: 1fr !important;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Our Story — named-area grid so the portrait can reorder on mobile  */
+/*  without touching its own markup (see StorySection.tsx)             */
+/* ------------------------------------------------------------------ */
+.story-grid {
+  display: grid;
+  grid-template-areas: "eyebrow" "para1" "photo" "more";
+}
+@media (min-width: 768px) {
+  /* Tablet: today's order — full text, then the portrait. */
+  .story-grid {
+    grid-template-areas: "eyebrow" "para1" "more" "photo";
+  }
+}
+@media (min-width: 1024px) {
+  /* Desktop: the original side-by-side layout. */
+  .story-grid {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-areas:
+      "eyebrow eyebrow eyebrow eyebrow eyebrow eyebrow photo photo photo photo photo photo"
+      "para1   para1   para1   para1   para1   para1   photo photo photo photo photo photo"
+      "more    more    more    more    more    more    photo photo photo photo photo photo";
+  }
+}
+.story-eyebrow { grid-area: eyebrow; }
+.story-para1 { grid-area: para1; }
+.story-photo { grid-area: photo; }
+.story-more { grid-area: more; }
 
 /* ------------------------------------------------------------------ */
 /*  Reduced motion — everything resolves instantly, nothing loops      */

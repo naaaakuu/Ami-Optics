@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion, useReducedMotion, type Variants } from "framer-motion";
 import { Container } from "@/components/ui/Container";
+import { cn } from "@/lib/utils";
 
 /**
  * LensLabIntro — the full-viewport opening to "Discover Your Lens".
@@ -81,27 +82,62 @@ export function LensLabIntro() {
         </motion.div>
       </Container>
 
-      {/* scroll cue — gentle bounce, fades on first scroll */}
+      {/* Discoverability cue — signals this is an interactive, multi-part,
+          horizontally-swipeable section (not a passive block to scroll past).
+          Fades away once the visitor starts scrolling in. Reduced motion keeps
+          the arrow static. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute bottom-9 left-1/2 -translate-x-1/2 transition-opacity duration-500"
+        className="pointer-events-none absolute bottom-8 left-1/2 -translate-x-1/2 transition-opacity duration-500"
         style={{ opacity: scrolled ? 0 : 1 }}
       >
-        <div className="flex flex-col items-center gap-2 text-muted-light">
-          <span className="font-mono text-[0.6rem] uppercase tracking-[0.3em]">
-            Scroll
+        <div className="flex flex-col items-center gap-3.5 text-muted-light">
+          {/* six-dot preview of the six exhibits ahead */}
+          <span className="flex items-center gap-1.5">
+            {Array.from({ length: 6 }).map((_, i) => (
+              <span
+                key={i}
+                className={cn(
+                  "block h-1.5 rounded-full",
+                  i === 0 ? "w-4 bg-champagne" : "w-1.5 bg-ink/20",
+                )}
+              />
+            ))}
           </span>
-          <svg
-            className="h-5 w-5 animate-float"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth={1.4}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M12 5v14M6 13l6 6 6-6" />
-          </svg>
+
+          {/* interactive gesture hint */}
+          <span className="inline-flex items-center gap-2 font-mono text-[0.62rem] font-medium uppercase tracking-[0.24em] text-champagne">
+            Swipe to explore
+            <svg
+              className={cn("h-4 w-4", reduce ? "" : "animate-nudge-x")}
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={1.5}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </span>
+
+          {/* scroll-to-begin */}
+          <span className="flex flex-col items-center gap-1">
+            <span className="font-mono text-[0.55rem] uppercase tracking-[0.3em]">
+              Scroll to begin
+            </span>
+            <svg
+              className={cn("h-4 w-4", reduce ? "" : "animate-float")}
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={1.4}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M12 5v14M6 13l6 6 6-6" />
+            </svg>
+          </span>
         </div>
       </div>
     </section>

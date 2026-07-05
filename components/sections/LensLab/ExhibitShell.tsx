@@ -75,11 +75,11 @@ export function ExhibitShell({
     <section
       id={`lens-${exhibit.id}`}
       aria-labelledby={`lens-${exhibit.id}-title`}
-      className="relative isolate flex min-h-full w-full items-center py-6 sm:py-7 lg:h-full lg:py-8"
+      className="relative isolate flex min-h-full w-full items-center py-4 md:py-7 lg:h-full lg:py-8"
       style={{ background: exhibit.tone }}
     >
       <Container className="relative w-full lg:h-full">
-        <div className="grid w-full items-center gap-x-14 gap-y-6 lg:h-full lg:grid-cols-2">
+        <div className="grid w-full items-center gap-x-14 gap-y-4 md:gap-y-6 lg:h-full lg:grid-cols-2">
           {/* ── Animation — DOM-first so it sits on top on mobile, right on desktop.
               On desktop the column fills the slide height so the animation box's
               flex-1 can consume the space the copy doesn't. ── */}
@@ -114,7 +114,7 @@ export function ExhibitShell({
             <motion.h3
               variants={item}
               id={`lens-${exhibit.id}-title`}
-              className="mt-4 font-display text-[length:clamp(1.9rem,1rem_+_2.4vw,3rem)] font-medium leading-[1.07] tracking-[-0.02em] text-balance text-ink"
+              className="mt-3 font-display text-[length:clamp(1.7rem,1rem_+_2.4vw,3rem)] font-medium leading-[1.08] tracking-[-0.02em] text-balance text-ink md:mt-4"
             >
               {exhibit.headline}
             </motion.h3>
@@ -122,23 +122,25 @@ export function ExhibitShell({
             {/* solution line */}
             <motion.p
               variants={item}
-              className="mt-2.5 font-display text-[length:clamp(1.2rem,0.9rem_+_0.9vw,1.45rem)] font-medium leading-snug text-royal"
+              className="mt-2 font-display text-[length:clamp(1.1rem,0.9rem_+_0.9vw,1.45rem)] font-medium leading-snug text-royal md:mt-2.5"
             >
               {exhibit.solution}
             </motion.p>
 
-            {/* body */}
+            {/* body — a shorter version on phones so the slide fits with no
+                internal scroll; tablet/desktop show the fuller copy. */}
             <motion.p
               variants={item}
-              className="mt-4 max-w-md text-[0.98rem] leading-relaxed text-muted text-pretty"
+              className="mt-3 max-w-md text-[1rem] leading-snug text-muted text-pretty md:mt-4 md:text-[0.98rem] md:leading-relaxed"
             >
-              {exhibit.body}
+              <span className="md:hidden">{exhibit.bodyMobile}</span>
+              <span className="hidden md:inline">{exhibit.body}</span>
             </motion.p>
 
             {/* best for */}
             <motion.p
               variants={item}
-              className="mt-5 flex flex-wrap items-baseline gap-x-2.5 gap-y-1 text-[0.95rem] italic text-champagne"
+              className="mt-3.5 flex flex-wrap items-baseline gap-x-2.5 gap-y-1 text-[0.95rem] italic text-champagne md:mt-5"
             >
               <span className="inline-flex items-center gap-1.5 text-[0.66rem] font-bold uppercase not-italic tracking-[0.16em] text-muted-light">
                 <CheckIcon className="h-4 w-4 text-royal" />

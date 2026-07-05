@@ -70,15 +70,24 @@ export function LensLab() {
   const total = BUILT.length;
 
   const [index, setIndex] = useState(0);
+  // The swipe coach on exhibit 1 teaches the horizontal gesture; it retires the
+  // moment the visitor navigates by any means (swipe, arrow, key, dot).
+  const [coachDismissed, setCoachDismissed] = useState(false);
   const viewportRef = useRef<HTMLDivElement>(null);
   const slideRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const goTo = useCallback(
-    (next: number) => setIndex((prev) => Math.max(0, Math.min(total - 1, next < 0 ? prev : next))),
+    (next: number) => {
+      setCoachDismissed(true);
+      setIndex((prev) => Math.max(0, Math.min(total - 1, next < 0 ? prev : next)));
+    },
     [total],
   );
   const step = useCallback(
-    (delta: number) => setIndex((prev) => Math.max(0, Math.min(total - 1, prev + delta))),
+    (delta: number) => {
+      setCoachDismissed(true);
+      setIndex((prev) => Math.max(0, Math.min(total - 1, prev + delta)));
+    },
     [total],
   );
 
@@ -161,7 +170,10 @@ export function LensLab() {
         aria-label="Discover your lens — interactive exhibits"
         tabIndex={0}
         onKeyDown={onKeyDown}
-        className="relative isolate flex h-[85svh] flex-col overflow-hidden bg-paper outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-royal/40"
+        // Entry threshold: rounded top, a hairline lip and a whisper-brighter
+        // canvas frame the lab as a distinct, self-contained interactive module
+        // — so scrolling in reads as "entering" a device, not passing a block.
+        className="relative isolate flex h-[85svh] flex-col overflow-hidden rounded-t-[1.75rem] border-t border-line-strong bg-paper-bright shadow-[0_-20px_44px_-32px_rgba(34,29,20,0.28)] outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-royal/40"
       >
         {/* ── Sliding track ─────────────────────────────────────────────── */}
         <div
@@ -227,6 +239,31 @@ export function LensLab() {
           >
             <Chevron className="h-5 w-5" />
           </button>
+
+          {/* ── Swipe coach (phones only; desktop has visible arrows) ──────
+              Teaches the horizontal gesture on the first exhibit, then retires
+              after the first navigation. Static under reduced motion. */}
+          {index === 0 && !coachDismissed ? (
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-x-0 bottom-4 z-20 flex justify-center sm:hidden"
+            >
+              <span className="inline-flex items-center gap-2 rounded-full border border-champagne/40 bg-paper-bright/90 px-4 py-2 font-mono text-[0.6rem] font-semibold uppercase tracking-[0.2em] text-ink shadow-[0_10px_30px_-16px_rgba(34,29,20,0.6)] backdrop-blur-sm">
+                Swipe to explore
+                <svg
+                  className={cn("h-3.5 w-3.5 text-champagne", reduce ? "" : "animate-nudge-x")}
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={1.6}
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </span>
+            </div>
+          ) : null}
         </div>
 
         {/* ── Bottom bar: position indicator + skip link ─────────────────── */}

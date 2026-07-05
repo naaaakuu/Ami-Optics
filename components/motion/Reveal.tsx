@@ -10,6 +10,13 @@ type RevealProps = {
   variant?: "rise" | "focus" | "fade" | "scale";
   /** stagger delay in ms */
   delay?: number;
+  /**
+   * Show immediately regardless of scroll position — for content revealed by
+   * a user action (e.g. a "Read more" expand) rather than by scrolling into
+   * view, where it may sit inside a zero-height collapsed container that an
+   * IntersectionObserver can never see as "in view".
+   */
+  forceVisible?: boolean;
   className?: string;
   children: ReactNode;
 };
@@ -23,17 +30,19 @@ export function Reveal({
   as: Tag = "div",
   variant = "rise",
   delay = 0,
+  forceVisible = false,
   className,
   children,
 }: RevealProps) {
   const { ref, inView } = useInView<HTMLDivElement>();
+  const visible = inView || forceVisible;
 
   return (
     <Tag
       ref={ref}
       data-reveal=""
       data-variant={variant}
-      data-inview={inView ? "true" : "false"}
+      data-inview={visible ? "true" : "false"}
       style={delay ? ({ "--reveal-delay": `${delay}ms` } as React.CSSProperties) : undefined}
       className={className}
     >

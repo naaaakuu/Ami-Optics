@@ -75,7 +75,7 @@ export function ProgressiveExhibit() {
   return (
     <ExhibitShell exhibit={exhibit}>
       <figure className="flex flex-col gap-3 sm:gap-4 lg:h-full lg:justify-center">
-        <div className="relative flex h-[44svh] min-h-[240px] w-full items-center justify-center gap-3 overflow-hidden rounded-[1.75rem] bg-paper-bright/55 px-4 ring-1 ring-line shadow-[0_30px_80px_-52px_rgba(34,29,20,0.55)] sm:gap-5 lg:h-auto lg:min-h-0 lg:max-h-[600px] lg:flex-1">
+        <div className="relative flex h-[38svh] min-h-[200px] w-full items-center justify-center gap-3 overflow-hidden rounded-[1.75rem] bg-paper-bright/55 px-4 ring-1 ring-line shadow-[0_30px_80px_-52px_rgba(34,29,20,0.55)] sm:gap-5 md:h-[44svh] md:min-h-[240px] lg:h-auto lg:min-h-0 lg:max-h-[600px] lg:flex-1">
           {/* gaze track + handle */}
           <div
             ref={trackRef}
