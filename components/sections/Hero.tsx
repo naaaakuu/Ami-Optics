@@ -180,7 +180,7 @@ export function Hero() {
               {/* a quiet editorial kicker — a thin royal rule, no spectacle icon */}
               <motion.p
                 variants={item}
-                className="eyebrow eyebrow--marked text-royal"
+                className="eyebrow text-royal"
               >
                 Family Opticians · Virar · Est. 1996
               </motion.p>
