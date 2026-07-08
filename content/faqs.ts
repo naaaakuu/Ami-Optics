@@ -32,7 +32,7 @@ export const faqCategories: FaqCategory[] = [
       {
         question: "How long does an eye test take?",
         answer: [
-          "A computerized eye examination usually takes around 15–30 minutes, depending on your requirements.",
+          "A computerized eye examination usually takes around 15 to 30 minutes, depending on your requirements.",
         ],
       },
       {
@@ -98,10 +98,10 @@ export const faqCategories: FaqCategory[] = [
     icon: "lens",
     items: [
       {
-        question: "What is the difference between Blue Cut and Anti-Glare lenses?",
+        question: "What is the difference between Blue Cut and Anti Glare lenses?",
         answer: [
           "Blue Cut lenses are designed for people who spend long hours using digital screens.",
-          "Anti-Glare coatings reduce unwanted reflections and improve visual comfort, especially while driving at night or working under bright lighting.",
+          "Anti Glare coatings reduce unwanted reflections and improve visual comfort, especially while driving at night or working under bright lighting.",
           "Our team will help you decide which option is most suitable.",
         ],
       },
@@ -110,7 +110,7 @@ export const faqCategories: FaqCategory[] = [
         answer: [
           "It depends on your lifestyle and prescription.",
           "Progressive lenses provide smooth vision at multiple distances without visible lines, while bifocal lenses have separate zones for near and distance vision.",
-          "We'll explain both options during your consultation.",
+          "We will explain both options during your consultation.",
         ],
       },
       {

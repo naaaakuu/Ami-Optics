@@ -10,7 +10,7 @@ export const siteConfig: SiteConfig = {
   legalName: "Ami Optics",
   establishedYear: 1996,
   description:
-    "Ami Optics — eyewear specialists in Virar offering eye testing and spectacle frames since 1996.",
+    "Ami Optics, eyewear specialists in Virar offering eye testing and spectacle frames since 1996.",
   phone: {
     primary: "+91 9321033221",
     secondary: "+91 7666722551",

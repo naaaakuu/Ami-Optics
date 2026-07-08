@@ -24,7 +24,7 @@ export const services: Service[] = [
       width: 1600,
       height: 1200,
     },
-    details: ["Premium", "Metal", "Rimless", "Half-Rim", "Kids"],
+    details: ["Premium", "Metal", "Rimless", "Half Rim", "Kids"],
   },
   {
     slug: "prescription-lenses",

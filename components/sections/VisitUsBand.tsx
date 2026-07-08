@@ -33,7 +33,7 @@ export function VisitUsBand() {
               <br />
               {siteConfig.address.landmark}
               <br />
-              {siteConfig.address.locality}, {siteConfig.address.state} –{" "}
+              {siteConfig.address.locality}, {siteConfig.address.state},{" "}
               {siteConfig.address.postalCode}
             </address>
           </Reveal>

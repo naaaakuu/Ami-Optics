@@ -40,7 +40,7 @@ export const collections: Collection[] = [
     name: "Half-Rim Frames",
     group: "Eyewear Frames",
     summary:
-      "A balance of structure and lightness — rimmed on top, open below.",
+      "A balance of structure and lightness, rimmed on top, open below.",
   },
   {
     slug: "kids-frames",

@@ -33,7 +33,7 @@ export function StorySection() {
         <div className="story-grid items-center gap-x-16">
           <Reveal className="story-eyebrow">
             <p className="eyebrow text-royal">
-              Our Story — Three Generations
+              Our Story, Three Generations
             </p>
             <Heading as="h2" size="display" className="mt-6 max-w-[16ch]">
               It began before 1996.

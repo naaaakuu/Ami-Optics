@@ -24,7 +24,7 @@ export type ServiceEntry = {
  */
 export const servicesIntro = [
   "At Ami Optics, we believe every customer deserves a solution that fits their vision, lifestyle and budget. Instead of simply selling products, we help you understand your options and recommend what is genuinely best for your eyes.",
-  "Whether you're looking for your first pair of spectacles, premium progressive lenses, contact lenses or a quick repair, our goal remains the same — providing honest advice, quality products and long-term comfort.",
+  "Whether you're looking for your first pair of spectacles, premium progressive lenses, contact lenses or a quick repair, our goal remains the same: honest advice, quality products and long-term comfort.",
 ];
 
 export const servicesPage: ServiceEntry[] = [
@@ -66,7 +66,7 @@ export const servicesPage: ServiceEntry[] = [
       "Frames may define your style, but lenses define your vision.",
       "We help customers choose lenses based on their prescription, work, daily routine and budget rather than simply recommending the most expensive option.",
     ],
-    points: ["Single vision", "Progressive", "Bifocal", "Blue Cut", "Photochromic", "High-index"],
+    points: ["Single vision", "Progressive", "Bifocal", "Blue Cut", "Photochromic", "High index"],
     icon: "lens",
     image: {
       src: "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=1200&q=80",
@@ -95,7 +95,7 @@ export const servicesPage: ServiceEntry[] = [
       "One of the reasons many customers choose Ami Optics is our large in-stock lens inventory.",
       "For many common prescriptions, spectacles can be prepared within approximately 30 minutes, subject to stock availability.",
     ],
-    points: ["~30 minutes for many prescriptions", "In-stock lens inventory"],
+    points: ["About 30 minutes for many prescriptions", "In stock lens inventory"],
     icon: "clock",
     image: {
       src: "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?w=1200&q=80",

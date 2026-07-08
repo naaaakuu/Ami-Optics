@@ -33,8 +33,8 @@ export function ValuesSection() {
             More than a shop. A promise.
           </Heading>
           <p className="mt-5 max-w-lg text-muted">
-            Quietly, every day, the same standards we&apos;ve kept since 1996 —
-            because people remember how they were treated long after they forget
+            Quietly, every day, the same standards we&apos;ve kept since 1996.
+            Because people remember how they were treated long after they forget
             what they bought.
           </p>
         </Reveal>

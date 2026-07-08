@@ -38,7 +38,7 @@ export function JourneySection() {
             From blurred to brilliantly clear.
           </Heading>
           <p className="mx-auto mt-5 max-w-lg text-muted">
-            Six unhurried steps, the same every time — because the right pair is
+            Six unhurried steps, the same every time. Because the right pair is
             never an accident.
           </p>
         </Reveal>

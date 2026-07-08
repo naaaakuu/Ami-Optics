@@ -48,7 +48,7 @@ export function LensDemo({ lens }: { lens: LensKey }) {
       { y: 152, label: "NEAR", glyph: "M150 146c8-4 16-4 18 0v16c-2-4-10-4-18 0zM168 146c8-4 16-4 18 0v16c-2-4-10-4-18 0z" },
     ];
     return (
-      <Frame label="One lens — near, middle and distance, in focus">
+      <Frame label="One lens: near, middle and distance, all in focus">
         <rect x="120" y="26" width="128" height="168" rx="64" className="stroke-paper" fill="rgba(255,255,255,0.03)" />
         {zones.map((z, i) => (
           <g key={z.label} style={loop("zone", 3.6, { delay: i * 0.9 })}>
@@ -80,7 +80,7 @@ export function LensDemo({ lens }: { lens: LensKey }) {
 
   // high-index
   return (
-    <Frame label="Same power — thinner, lighter lens">
+    <Frame label="Same power, thinner and lighter lens">
       {/* standard, thick */}
       <g style={loop("fade-a", 3.6)}>
         <path d="M150 50c30 12 30 108 0 120 24-6 60-6 84 0 -30-12-30-108 0-120-24 6-60 6-84 0Z" className="stroke-paper/70" fill="rgba(255,255,255,0.04)" />

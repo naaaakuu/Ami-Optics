@@ -202,7 +202,7 @@ export function Hero() {
                 variants={item}
                 className="mt-5 max-w-md text-base leading-relaxed text-muted text-pretty sm:mt-6 sm:text-lg"
               >
-                Honest eye care for Virar families — computerised testing and
+                Honest eye care for Virar families, computerised testing and
                 hand-fitted frames.
               </motion.p>
 

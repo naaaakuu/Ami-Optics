@@ -94,7 +94,7 @@ export function FramesSection() {
           </Reveal>
           <Reveal delay={150} className="max-w-md md:w-[42%] md:pb-2">
             <p className="text-muted text-pretty">
-              Every face, every budget — and honest, unhurried help finding the
+              Every face, every budget, and honest, unhurried help finding the
               pair that feels like it was made for you.
             </p>
             <Link

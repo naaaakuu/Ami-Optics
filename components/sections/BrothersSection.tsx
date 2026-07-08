@@ -20,7 +20,7 @@ export function BrothersSection() {
           </Heading>
           <p className="mx-auto mt-5 max-w-lg text-muted">
             For nearly three decades, Jignesh and Jatin have run Ami Optics side
-            by side — their strengths fitting together as neatly as a good pair.
+            by side, their strengths fitting together as neatly as a good pair.
           </p>
         </Reveal>
 

@@ -11,7 +11,7 @@ export const journeySteps: JourneyStep[] = [
     icon: "eye",
     title: "Computerised Eye Test",
     description:
-      "Every good pair begins here — an accurate, computerised examination, explained in plain language.",
+      "Every good pair begins here. An accurate, computerised examination, explained in plain language.",
     video: "/videos/journey/step-1-eye-test-web.mp4",
   },
   {
@@ -25,7 +25,7 @@ export const journeySteps: JourneyStep[] = [
     icon: "lens",
     title: "Choose The Right Lens",
     description:
-      "Single vision, progressive, blue cut and more — matched to your prescription, lifestyle and budget.",
+      "Single vision, progressive, blue cut and more, matched to your prescription, lifestyle and budget.",
     video: "/videos/journey/step-3-choose-lens-web.mp4",
   },
   {
@@ -46,7 +46,7 @@ export const journeySteps: JourneyStep[] = [
     icon: "check",
     title: "Walk Out Seeing Better",
     description:
-      "Often the same day — and we're here afterwards for any adjustment you need.",
+      "Often the same day, and we're here afterwards for any adjustment you need.",
     video: "/videos/journey/step-6-result-web.mp4",
   },
 ];
