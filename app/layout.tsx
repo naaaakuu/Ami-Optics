@@ -74,6 +74,12 @@ export default function RootLayout({
     gtag('config', 'G-LKFSQBFN4B');
   `}
 </Script>
+
+<Script
+  src="https://clarity.ms/tag/xkd8hkjj9g"
+  strategy="afterInteractive"
+  async
+/>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
