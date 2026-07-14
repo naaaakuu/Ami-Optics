@@ -76,7 +76,7 @@ export default function RootLayout({
 </Script>
 
 <Script
-  src="https://clarity.ms/tag/xkd8hkjj9g"
+  src="https://www.clarity.ms/tag/xkd8hkjj9g"
   strategy="afterInteractive"
   async
 />
