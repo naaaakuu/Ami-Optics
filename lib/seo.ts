@@ -12,7 +12,22 @@ const schemaDayNames: Record<string, string> = {
 };
 
 export function getSiteUrl(): string {
-  return process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+  const url = process.env.NEXT_PUBLIC_SITE_URL;
+
+  if (!url) {
+    if (process.env.NODE_ENV === "production") {
+      throw new Error(
+        "[seo] NEXT_PUBLIC_SITE_URL is not set. " +
+          "Add it to your Vercel environment variables: " +
+          "https://vercel.com/docs/environment-variables"
+      );
+    }
+    // Local development fallback only — never reached in production.
+    return "http://localhost:3000";
+  }
+
+  // Strip any trailing slash so callers can always do `${getSiteUrl()}/path`.
+  return url.replace(/\/$/, "");
 }
 
 export function getOpticianJsonLd() {
