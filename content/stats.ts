@@ -52,6 +52,6 @@ export const trustStats: TrustStat[] = [
   { value: googleRating.rating, suffix: "★", decimals: 1, label: "Google rating" },
   { value: googleRating.count, suffix: "+", label: "Google reviews" },
   { value: 316, suffix: "+", label: "Eye tests each month" },
-  { value: 300, suffix: "+", label: "Spectacles each month" },
+  { value: 900, suffix: "+", label: "Spectacles sold each month" },
   { value: 3, label: "Generations of family" },
 ];
